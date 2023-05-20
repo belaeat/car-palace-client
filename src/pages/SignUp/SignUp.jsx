@@ -3,6 +3,7 @@ import loginImage from '../../assets/login.jpg'
 import { Link } from "react-router-dom";
 import { AuthContext } from '../../providers/AuthProvider';
 
+
 const SignUp = () => {
 
     const { createUser } = useContext(AuthContext)
@@ -29,7 +30,7 @@ const SignUp = () => {
             <div className="hero absolute top-1/2 -left-60 transform -translate-y-1/2">
                 <div className="hero-content flex-col text-center w-1/2">
                     <div className="">
-                        <h1 className="text-5xl font-bold mb-8">Login!</h1>
+                        <h1 className="text-5xl font-bold mb-8">Sign Up!</h1>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
                         <div className="card-body">
@@ -59,7 +60,7 @@ const SignUp = () => {
                                     <input type="text" name='photo' placeholder="Your photo URL" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control mt-6">
-                                    <button className="btn bg-[#86C8BC] border-none">Sign Up</button>
+                                    <button className="btn bg-[#86C8BC] border-none mb-4">Sign Up</button>
                                 </div>
                             </form>
                         </div>
