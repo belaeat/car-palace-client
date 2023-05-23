@@ -3,7 +3,7 @@
 
 
 const CarCategory = ({ categories }) => {
-    const { toyPicture, toyName, subcategory, rating, price } = categories;
+    const { toyPicture, toyName, rating, price } = categories;
 
     return (
         <div >
@@ -13,7 +13,8 @@ const CarCategory = ({ categories }) => {
                 </figure>
                 <div className="card-body items-center text-center">
                     <h2 className="card-title">{toyName}</h2>
-                    <p>{price}</p>
+                    <p>Price: ${price}</p>
+                    <p>Rating: {rating}</p>
                     <div className="card-actions">
                         <button className="btn border-none btn-block bg-[#F16385]">Buy Now</button>
                     </div>

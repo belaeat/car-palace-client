@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CarCategory from "../CarCategory/CarCategory";
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import { Tab, TabList, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
 
@@ -28,22 +28,10 @@ const ShopByCategory = () => {
                     <TabList>
                         <div>
                             <Tab onClick={() => handleTabClick('classic')}>Classic Car</Tab>
-                            <Tab onClick={() => handleTabClick('classic')}>Modern Car</Tab>
-                            <Tab onClick={() => handleTabClick('classic')}>Construction Car</Tab>
+                            <Tab onClick={() => handleTabClick('modern')}>Modern Car</Tab>
+                            <Tab onClick={() => handleTabClick('construction')}>Construction Car</Tab>
                         </div>
                     </TabList>
-
-                    <TabPanel>
-
-                    </TabPanel>
-
-                    <TabPanel>
-
-                    </TabPanel>
-
-                    <TabPanel>
-
-                    </TabPanel>
                 </Tabs>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
