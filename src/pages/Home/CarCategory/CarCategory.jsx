@@ -2,8 +2,8 @@
 // import 'react-tabs/style/react-tabs.css';
 
 
-const CarCategory = () => {
-    // const { toyPicture, toyName, subcategory, rating, price } = categories;
+const CarCategory = ({categories}) => {
+    const { toyPicture, toyName, subcategory, rating, price } = categories;
 
     return (
         <div>
