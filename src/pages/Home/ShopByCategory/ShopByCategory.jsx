@@ -12,18 +12,18 @@ const ShopByCategory = () => {
     useEffect(() => {
         fetch(`http://localhost:5000/allToys/${activeTab}`)
             .then(res => res.json())
-            // .then(data => setCategories(data))
             .then(data => setCategories(data))
+        // .then(data => setCategories(data))
     }, [activeTab])
 
     const handleTabClick = (tabName) => {
         setActiveTab(tabName);
     };
 
-
     return (
         <div>
             <div>
+                <h2 className="text-center font-bold text-5xl my-12">Shop By Category</h2>
                 <Tabs>
                     <TabList>
                         <div>
@@ -32,12 +32,21 @@ const ShopByCategory = () => {
                             <Tab onClick={() => handleTabClick('classic')}>Construction Car</Tab>
                         </div>
                     </TabList>
-                    <TabPanel></TabPanel>
-                    <TabPanel></TabPanel>
-                    <TabPanel></TabPanel>
+
+                    <TabPanel>
+
+                    </TabPanel>
+
+                    <TabPanel>
+
+                    </TabPanel>
+
+                    <TabPanel>
+
+                    </TabPanel>
                 </Tabs>
             </div>
-            <div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {
                     categories.map(category => <CarCategory
                         key={category._id}
@@ -46,6 +55,7 @@ const ShopByCategory = () => {
                 }
             </div>
         </div>
+
     );
 };
 

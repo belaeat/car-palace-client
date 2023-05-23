@@ -2,20 +2,23 @@
 // import 'react-tabs/style/react-tabs.css';
 
 
-const CarCategory = ({categories}) => {
+const CarCategory = ({ categories }) => {
     const { toyPicture, toyName, subcategory, rating, price } = categories;
 
     return (
-        <div>
-            {/* <Tabs>
-                <TabList>
-                    <div>
-                        <Tab>Classic Car</Tab>
-                        <Tab>Modern Car</Tab>
-                        <Tab>Construction Car</Tab>
+        <div >
+            <div className="card w-96 bg-base-100 shadow-xl">
+                <figure className="px-10 pt-10">
+                    <img src={toyPicture} alt="Shoes" className="rounded-xl" />
+                </figure>
+                <div className="card-body items-center text-center">
+                    <h2 className="card-title">{toyName}</h2>
+                    <p>{price}</p>
+                    <div className="card-actions">
+                        <button className="btn border-none btn-block bg-[#F16385]">Buy Now</button>
                     </div>
-                </TabList>
-            </Tabs> */}
+                </div>
+            </div>
         </div>
     );
 };
