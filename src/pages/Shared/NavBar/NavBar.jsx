@@ -8,7 +8,6 @@ const NavBar = () => {
     const navItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/all-toys'>All Toys</Link></li>
-        <li><Link to='/my-toys'>My Toys</Link></li>
         <li><Link to='/add-toy'>Add Toys</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
     </>
@@ -38,13 +37,15 @@ const NavBar = () => {
 
 
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <div className="navbar-center flex justify-center">
                 <ul className="menu menu-horizontal px-1 font-semibold">
                     {navItems}
+                    {
+                        user && <li><Link to='/my-toys'>My Toys</Link></li> 
+                    }
                 </ul>
             </div>
             <div className="navbar-end">
-                {/* <Link className="btn border-none bg-[#86C8BC]" to='/login'>Login</Link> */}
 
                 {
                     user &&
@@ -52,10 +53,11 @@ const NavBar = () => {
                         <img className='mask mask-circle h-10' src={user.photoURL} alt={user.displayName} data-tooltip-id={user.displayName} data-tooltip-content={user.displayName} /><Tooltip id={user.displayName} />
                     </>
                 }
-                {user ? <>                
-                    <p onClick={handleLogOut} className="btn border-none bg-[#86C8BC] ms-2">Logout</p> 
+                {user ? <>
+                    <p onClick={handleLogOut} className="btn border-none bg-[#86C8BC] ms-2">Logout</p>
                 </> :
                     <>
+                        
                         <p className="btn border-none bg-[#F16385] me-2"><Link to='/sign-up'>Sign Up</Link></p>
                         <p className="btn border-none bg-[#86C8BC]"><Link to='/login'>Login</Link></p>
                     </>

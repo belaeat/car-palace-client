@@ -1,9 +1,13 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import { Toaster, toast } from "react-hot-toast";
 
 const AddToy = () => {
 
     const { user } = useContext(AuthContext)
+
+    // toast
+    const notify = () => toast.success("Toy Added Successfully")
 
     const handleAddToy = event => {
         event.preventDefault();
@@ -106,7 +110,8 @@ const AddToy = () => {
                     <input type="text" placeholder="Toy Description" name="details" className="input h-[100px] input-bordered" />
                 </div>
                 <div className="form-control mt-6">
-                    <input className="btn border-none bg-[#F16385] btn-block" type="submit" value="Add Toy" />
+                    <input onClick={notify} className="btn border-none bg-[#F16385] btn-block" type="submit" value="Add Toy" />
+                    <Toaster />
                 </div>
             </form>
 
