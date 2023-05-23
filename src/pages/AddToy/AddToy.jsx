@@ -1,23 +1,60 @@
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const AddToy = () => {
 
+    const { user } = useContext(AuthContext)
+
+    const handleAddToy = event => {
+        event.preventDefault();
+
+        const form = event.target
+        const sellerName = form.sellerName.value;
+        const sellerEmail = user?.email;
+        const toyName = form.toyName.value;
+        const toyPicture = form.toyPicture.value;
+        const subcategory = form.subcategory.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+        const availableQuantity = form.availableQuantity.value;
+        const details = form.details.value;
+
+        const addToy = { sellerName, sellerEmail, toyName, toyPicture, subcategory, price, rating, availableQuantity, details }
+
+        console.log(addToy)
+
+        // sending data to backend
+
+        fetch('http://localhost:5000/newAddedToy', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(addToy)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
+
+    }
 
     return (
         <div className="bg-[#86C8BC] rounded-lg mt-12">
             <h1 className="text-5xl p-12 font-bold text-center">Add New Toy</h1>
-            <form className="p-12">
+            <form onSubmit={handleAddToy} className="p-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Seller Email</span>
                         </label>
-                        <input type="email" name="sellerEmail" placeholder="Your email" className="input input-bordered" />
+                        <input type="email" defaultValue={user?.email} name="sellerEmail" placeholder="Your email" className="input input-bordered" />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Seller Name</span>
                         </label>
-                        <input type="text" placeholder="Your name" name="sellerName" className="input input-bordered" />
+                        <input type="text" defaultValue={user?.displayName} placeholder="Your name" name="sellerName" className="input input-bordered" />
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -36,7 +73,7 @@ const AddToy = () => {
                             <span className="label-text">Category</span>
                         </label>
                         {/* <input type="text" placeholder="email" className="input input-bordered" /> */}
-                        <select className="select select-bordered">
+                        <select className="select select-bordered" name="subcategory">
                             <option disabled selected>Choose Category</option>
                             <option>classic</option>
                             <option>modern</option>
@@ -72,9 +109,7 @@ const AddToy = () => {
                     <input className="btn border-none bg-[#F16385] btn-block" type="submit" value="Add Toy" />
                 </div>
             </form>
-            <div className="card-body">
-                
-            </div>
+
         </div>
     );
 };
