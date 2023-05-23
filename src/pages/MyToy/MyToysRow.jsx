@@ -3,6 +3,7 @@
 const MyToysRow = ({ toys }) => {
 
     const { toyName, toyPicture, subcategory, price, rating, availableQuantity } = toys
+    
 
     return (
         <tr>

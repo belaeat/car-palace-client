@@ -8,11 +8,12 @@ const MyToy = () => {
     const { user } = useContext(AuthContext)
     const [myToys, setMyToys] = useState([])
 
-    const url = `http://localhost:5000/newAddedToy?email=${user?.sellerEmail}`
+    const url = `http://localhost:5000/newAddedToy?email=${user.email}`
 
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
+            // .then(data => console.log(data))
             .then(data => setMyToys(data))
     }, [])
 
