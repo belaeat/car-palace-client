@@ -29,7 +29,7 @@ const AddToy = () => {
 
         // sending data to backend
 
-        fetch('http://localhost:5000/newAddedToy', {
+        fetch('https://b7a11-car-palace-server-belaeat.vercel.app/newAddedToy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -10,7 +10,7 @@ const ShopByCategory = () => {
     const [activeTab, setActiveTab] = useState("classic");
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allToys/${activeTab}`)
+        fetch(`https://b7a11-car-palace-server-belaeat.vercel.app/allToys/${activeTab}`)
             .then(res => res.json())
             .then(data => setCategories(data))
         // .then(data => setCategories(data))
